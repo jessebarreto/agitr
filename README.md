@@ -5,6 +5,8 @@ Implementation of some easy example programs in ROS
 
 This small ROS example uses the basic knowledge obtained in the bok A Gentle Introduction to ROS and all the codes came from there and tested by me.
 
+#Install
+
 To install the ROS on Ubuntu 14.04 you have to use the follow commands on terminal
 
 $ touch /etc/apt/sources.list.d/ros-latest.list
@@ -32,5 +34,39 @@ source /opt/ros/indigo/setup.bash
 To check if everything worked just fine, you can use this command
 
 $ export | grep ROS
+
+# Creating a ROS workspace and Run these Examples
+
+Using the commands to create a folder to be your global ROS workspace
+
+$ mkdir ~/catkin_ws
+$ cd ~/catkin_ws
+$ mkdir src
+$ cd src
+$ catkin_init_workspace
+$ cd ..
+$ catkin_make
+$ source devel/setup.bash
+
+
+Download the code from github
+
+$ svn export https://github.com/jessebarreto/agitr
+$ mv agitr/trunk ./src/agitr
+$ rm -R agitr
+
+$ cd src
+$ catkin_create_pkg agitr
+$ cd ..
+$ catkin_make
+$ source devel/setup.bash
+
+
+To execute the program you can use
+
+$ rosrun agitr helloROS
+
+
+
 
 
